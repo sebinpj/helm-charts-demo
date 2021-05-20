@@ -19,7 +19,7 @@ mvn package
 ```shell
 docker build -t kube-demo .
 ```
-- Install the application onto you kuberntes cluster using helm
+- Install the application onto your kubernetes cluster using helm
 ```shell
 helm upgrade --install kube-demo helm --create-namespace -n kube-demo
 ```
