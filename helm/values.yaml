@@ -1,0 +1,33 @@
+# Default values for kubernetes-demo.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: kube-demo
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+
+service:
+  type: LoadBalancer
+  port: 85
+  targetPort: 8080
+
+
+resources:
+   limits:
+     cpu: 1000m
+     memory: 765Mi
+   requests:
+     cpu: 500m
+     memory: 528Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
